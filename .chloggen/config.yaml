@@ -3,6 +3,11 @@ change_logs:
     user: CHANGELOG.md
 default_change_logs:
     - user
+change_logs:
+    api: CHANGELOG-API.md
+    user: CHANGELOG.md
+default_change_logs:
+    - user
 entries_dir: .chloggen
 template_yaml: .chloggen/TEMPLATE.yaml
 summary_template: .chloggen/summary.tmpl
@@ -119,12 +124,15 @@ components:
     - extension/skywalking_encoding
     - extension/solarwindsapmsettings
     - extension/storage
+    - extension/sumologic
+    - extension/text_encoding
     - extension/zipkin_encoding
     - internal/aws
     - internal/collectd
     - internal/common
+    - internal/coreinternal
+    - internal/datadog
     - internal/docker
-    - internal/e2e
     - internal/exp/metrics
     - internal/filter
     - internal/grpcutil
@@ -327,6 +335,7 @@ components:
     - scraper/network
     - scraper/nfs
     - scraper/paging
+    - scraper/process
     - scraper/processes
     - scraper/system
     - scraper/zookeeper
