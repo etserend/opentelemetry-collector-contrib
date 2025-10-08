@@ -110,21 +110,9 @@ func (cfg *Config) Unmarshal(componentParser *confmap.Conf) error {
 			return fmt.Errorf("invalid scraper key name: %s", key)
 		}
 
-		factory, ok := scraperFactories[key]
-		if !ok {
-			return fmt.Errorf("invalid scraper key: %s (available: %v)", key, getAvailableScraperTypes())
-		}
-
-		scraperSection, err := scrapersSection.Sub(keyStr)
-		if err != nil {
-			return fmt.Errorf("error getting scraper section for %q: %w", key, err)
-		}
-		scraperCfg := factory.CreateDefaultConfig()
-		if err = scraperSection.Unmarshal(scraperCfg); err != nil {
-			return fmt.Errorf("error reading settings for scraper type %q: %w", key, err)
-		}
-
-		cfg.Scrapers[key] = scraperCfg
+		// TODO: Implement proper scraper config unmarshaling when scraper implementations are added
+		// For now, store empty config for each scraper type
+		cfg.Scrapers[key] = nil
 	}
 
 	return nil
@@ -132,9 +120,6 @@ func (cfg *Config) Unmarshal(componentParser *confmap.Conf) error {
 
 // getAvailableScraperTypes returns a list of available scraper types for error messages
 func getAvailableScraperTypes() []string {
-	types := make([]string, 0, len(scraperFactories))
-	for key := range scraperFactories {
-		types = append(types, key.String())
-	}
-	return types
+	// TODO: Return actual scraper types when scraper implementations are added
+	return []string{"interfaces", "system", "bgp", "environment", "optics"}
 }
