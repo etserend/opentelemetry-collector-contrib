@@ -28,7 +28,7 @@ func createDefaultConfig() component.Config {
 	cfg := scraperhelper.NewDefaultControllerConfig()
 	cfg.Timeout = 10 * time.Second
 	cfg.CollectionInterval = 60 * time.Second
-	
+
 	return &Config{
 		ControllerConfig: cfg,
 		Devices:          []DeviceConfig{},

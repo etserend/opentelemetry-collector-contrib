@@ -117,9 +117,3 @@ func (cfg *Config) Unmarshal(componentParser *confmap.Conf) error {
 
 	return nil
 }
-
-// getAvailableScraperTypes returns a list of available scraper types for error messages
-func getAvailableScraperTypes() []string {
-	// TODO: Return actual scraper types when scraper implementations are added
-	return []string{"interfaces", "system", "bgp", "environment", "optics"}
-}

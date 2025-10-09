@@ -12,12 +12,15 @@ resource_attributes:
   cisco.device.name:
     description: Name of the Cisco device
     type: string
+    enabled: true
   cisco.device.ip:
     description: IP address of the Cisco device
     type: string
+    enabled: true
   cisco.device.model:
     description: Model of the Cisco device
     type: string
+    enabled: true
 
 metrics:
   cisco.interface.transmit.bytes:
